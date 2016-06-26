@@ -15,9 +15,15 @@ const config = {
         loaders: ['style', 'raw'],
         include: path.resolve(__dirname, '../'),
       },
+      {
+        test: /(\.scss?$)/,
+        loaders: ["style", "css?sourceMap!sass?sourceMap"],
+        // loader: "style-loader!css-loader!postcss-loader",
+        include: path.resolve(__dirname, '../')
+      }
     ],
   },
 };
 
-config = updateConfig(config);
+updateConfig(config);
 module.exports = config;

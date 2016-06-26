@@ -1,9 +1,10 @@
 import React from 'react';
 import classNames from 'classnames';
+import { RCIcon } from './rc-icon.jsx';
 import 'material-design-lite';
 const { componentHandler } = global;
 
-class RCButton extends React.Component {
+class RCIconButton extends React.Component {
   componentDidMount() {
     this.componentMDLUpdate();
   }
@@ -20,7 +21,7 @@ class RCButton extends React.Component {
       id,
       className,
       style,
-      children,
+      icon,
       badgeLabel,
       disabled = false,
       noink = false,
@@ -44,7 +45,7 @@ class RCButton extends React.Component {
     } = this.props;
 
     const elClassName = classNames(
-      'mdl-button mdl-js-button',
+      'mdl-button mdl-js-button mdl-button--icon',
       {
         'mdl-button--raised': raised,
         'mdl-js-ripple-effect': !noink,
@@ -76,17 +77,17 @@ class RCButton extends React.Component {
 
     return isAnchor ? (
       <a {...attributes} >
-        {children}
+        <RCIcon icon={icon} />
       </a>
     ) : (
       <button {...attributes}>
-        {children}
+        <RCIcon icon={icon} />
       </button>
     );
   }
 }
 
-RCButton.propTypes = {
+RCIconButton.propTypes = {
   id: React.PropTypes.string,
   className: React.PropTypes.string,
   style: React.PropTypes.object,
@@ -100,6 +101,7 @@ RCButton.propTypes = {
       ])
     ),
   ]),
+  icon: React.PropTypes.string.isRequired,
   colored: React.PropTypes.oneOf([
     'colored',
     'primary',
@@ -115,4 +117,4 @@ RCButton.propTypes = {
   badgeLabel: React.PropTypes.string,
 };
 
-export { RCButton };
+export { RCIconButton };

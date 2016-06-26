@@ -1,8 +1,6 @@
 import React from 'react';
 import classNames from 'classnames';
 import 'material-design-lite';
-import 'material-design-lite/material.css';
-import './rc-icon.css';
 const { componentHandler } = global;
 
 class RCIcon extends React.Component {
@@ -27,6 +25,7 @@ class RCIcon extends React.Component {
 
     const elClassName = classNames(
       'material-icons',
+      'rc-icon',
       className
     );
 

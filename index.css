@@ -1,0 +1,76 @@
+.layout.horizontal,
+.layout.vertical {
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex; }
+
+.layout.inline {
+  display: -ms-inline-flexbox;
+  display: -webkit-inline-flex;
+  display: inline-flex; }
+
+.layout.horizontal {
+  -ms-flex-direction: row;
+  -webkit-flex-direction: row;
+  flex-direction: row; }
+
+.layout.vertical {
+  -ms-flex-direction: column;
+  -webkit-flex-direction: column;
+  flex-direction: column; }
+
+.layout.wrap {
+  -ms-flex-wrap: wrap;
+  -webkit-flex-wrap: wrap;
+  flex-wrap: wrap; }
+
+.layout.center,
+.layout.center-center {
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center; }
+
+.layout.center-justified,
+.layout.center-center {
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center; }
+
+.flex {
+  -ms-flex: 1 1 0.000000001px;
+  -webkit-flex: 1;
+  flex: 1;
+  -webkit-flex-basis: 0.000000001px;
+  flex-basis: 0.000000001px; }
+
+.flex-auto {
+  -ms-flex: 1 1 auto;
+  -webkit-flex: 1 1 auto;
+  flex: 1 1 auto; }
+
+.flex-none {
+  -ms-flex: none;
+  -webkit-flex: none;
+  flex: none; }
+
+.layout.horizontal-reverse,
+.layout.vertical-reverse {
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex; }
+
+.layout.horizontal-reverse {
+  -ms-flex-direction: row-reverse;
+  -webkit-flex-direction: row-reverse;
+  flex-direction: row-reverse; }
+
+.layout.vertical-reverse {
+  -ms-flex-direction: column-reverse;
+  -webkit-flex-direction: column-reverse;
+  flex-direction: column-reverse; }
+
+.layout.wrap-reverse {
+  -ms-flex-wrap: wrap-reverse;
+  -webkit-flex-wrap: wrap-reverse;
+  flex-wrap: wrap-reverse; }
+
