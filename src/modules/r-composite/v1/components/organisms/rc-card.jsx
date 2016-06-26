@@ -48,7 +48,7 @@ class RCCard extends React.Component {
     const attributes = {
       id,
       className: elClassName,
-      style
+      style,
     };
 
     const headerStyle = styleMixins['.card-header'];
@@ -170,6 +170,7 @@ RCCard.propTypes = {
   id: React.PropTypes.string,
   className: React.PropTypes.string,
   style: React.PropTypes.object,
+  styleMixins: React.PropTypes.object,
   children: React.PropTypes.oneOfType([
     React.PropTypes.string,
     React.PropTypes.element,

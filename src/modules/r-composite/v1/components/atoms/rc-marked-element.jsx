@@ -32,12 +32,12 @@ class RCMarkedElement extends React.Component {
       smartLists,
       smartypants,
       highlight: (code, lang) => (`<code class="hljs">${highlightjs.highlightAuto(code, [
-          'javascript',
-          'html',
-          'xml',
-          'jsx',
-          lang
-        ]).value}</code>`)
+        'javascript',
+        'html',
+        'xml',
+        'jsx',
+        lang,
+      ]).value}</code>`),
     });
 
     const [divText, scriptText] = children && React.Children.count(children) > 1 ?

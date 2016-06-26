@@ -4,3 +4,4 @@ import './rc-icon.css';
 export * from './rc-button';
 export * from './rc-icon';
 export * from './rc-marked-element';
+export * from './rc-checkbox';
