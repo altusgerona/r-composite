@@ -75,7 +75,7 @@ storiesOf('RCCheckbox', module)
   .add('Basic Usage: Add onClick', () => (
     <div>
       <div style={{ padding: 20, display: 'flex' }} >
-        <RCCheckbox label="Checkbox" onClick={ action('on clicked event') }/>
+        <RCCheckbox label="Checkbox" onClick={ action('on clicked event') } />
       </div>
       <div>
         <hr />

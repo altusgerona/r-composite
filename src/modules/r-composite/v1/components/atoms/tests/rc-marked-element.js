@@ -13,7 +13,7 @@ describe('RCMarkedElement', () => {
 
   it('should render HTML', () => {
     const text = '### This is a header\n\nThis is the body';
-    const html = '<div class=""><h3 id="this-is-a-header">This is a header</h3>\n<p>This is the body</p>\n</div>';
+    const html = '<div class="rc-marked-element"><h3 id="this-is-a-header">This is a header</h3>\n<p>This is the body</p>\n</div>';
     const wrapper = mount(<RCMarkedElement markdown={text} />);
     expect(wrapper.html().trim()).to.be.equal(html);
   });

@@ -2,7 +2,6 @@ import React from 'react';
 import classNames from 'classnames';
 import 'material-design-lite';
 import random from 'random-js';
-import _ from 'underscore';
 const { componentHandler } = global;
 
 class RCCheckbox extends React.Component {
@@ -17,9 +16,49 @@ class RCCheckbox extends React.Component {
     this.componentMDLUpdate();
     this.setChecked();
   }
+  shouldComponentUpdate(nextProps) {
+    for (const i in nextProps) {
+      if (
+        nextProps[i] &&
+        typeof nextProps[i] !== 'function' &&
+        this.props[i] &&
+        typeof this.props[i] !== 'function' &&
+        this.props[i] !== nextProps[i]
+      ) {
+        return true;
+      }
+    }
+    for (const i in this.props) {
+      if (
+        nextProps[i] &&
+        typeof nextProps[i] !== 'function' &&
+        this.props[i] &&
+        typeof this.props[i] !== 'function' &&
+        this.props[i] !== nextProps[i]
+      ) {
+        return true;
+      }
+    }
+    return false;
+  }
   componentDidUpdate() {
     this.componentMDLUpdate();
     this.setChecked();
+  }
+  onChange(e) {
+    const { onChange } = this.props;
+    onChange(this.getValue(), e);
+  }
+  onClick(e) {
+    const { onClick } = this.props;
+    onClick(this.getValue(), e);
+  }
+  getElement() {
+    return this.inputElement;
+  }
+  getValue() {
+    return this.inputElement.value && this.inputElement.checked ?
+      this.inputElement.value : this.inputElement.checked;
   }
   setChecked() {
     const { checked } = this.props;
@@ -44,47 +83,6 @@ class RCCheckbox extends React.Component {
     } else {
       this.element.MaterialCheckbox.uncheck();
     }
-
-  }
-  getElement() {
-    return this.inputElement;
-  }
-  getValue() {
-    return this.inputElement.value && this.inputElement.checked ?
-      this.inputElement.value : this.inputElement.checked;
-  }
-  onChange(e) {
-    const { onChange } = this.props;
-    onChange(this.getValue(), e);
-  }
-  onClick(e) {
-    const { onClick } = this.props;
-    onClick(this.getValue(), e);
-  }
-  shouldComponentUpdate (nextProps) {
-    for (var i in nextProps) {
-      if (
-        nextProps[i] &&
-        typeof nextProps[i] !== 'function' &&
-        this.props[i] &&
-        typeof this.props[i] !== 'function' &&
-        this.props[i] !== nextProps[i]
-      ) {
-        return true;
-      }
-    }
-    for (var i in this.props) {
-      if (
-        nextProps[i] &&
-        typeof nextProps[i] !== 'function' &&
-        this.props[i] &&
-        typeof this.props[i] !== 'function' &&
-        this.props[i] !== nextProps[i]
-      ) {
-        return true;
-      }
-    }
-    return false;
   }
   componentMDLUpdate() {
     if (this.element && componentHandler) {
@@ -155,6 +153,7 @@ RCCheckbox.propTypes = {
   checked: React.PropTypes.bool,
   onChange: React.PropTypes.func,
   onClick: React.PropTypes.func,
+  value: React.PropTypes.string,
 };
 
 export { RCCheckbox };

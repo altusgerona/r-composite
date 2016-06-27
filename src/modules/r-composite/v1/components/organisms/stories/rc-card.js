@@ -61,12 +61,12 @@ storiesOf('RCCard', module)
           style={{
             margin: 5,
             width: 350,
-            color: 'black'
+            color: 'black',
           }}
           styleMixins={{
             '.card-header': {
               height: 220,
-              backgroundSize: 'cover'
+              backgroundSize: 'cover',
             },
           }}
           image="https://elements.polymer-project.org/bower_components/paper-card/demo/donuts.png"

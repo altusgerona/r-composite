@@ -4,11 +4,26 @@ import 'material-design-lite';
 const { componentHandler } = global;
 
 class RCButton extends React.Component {
+  constructor() {
+    super();
+    this.onClick = this.onClick.bind(this);
+  }
   componentDidMount() {
     this.componentMDLUpdate();
   }
   componentDidUpdate() {
     this.componentMDLUpdate();
+  }
+  onClick(e) {
+    const {
+      onClick = () => {},
+      dialogConfirm,
+      dialogDismiss,
+    } = this.props;
+    onClick({
+      dialogConfirm,
+      dialogDismiss,
+    }, e);
   }
   componentMDLUpdate() {
     if (this.element && componentHandler) {
@@ -28,7 +43,6 @@ class RCButton extends React.Component {
       colored,
       href,
       target,
-      onClick,
       isAnchor = true,
       // ariaActiveAttribute,
       // callbackWhenActive,
@@ -63,7 +77,7 @@ class RCButton extends React.Component {
       id,
       className: elClassName,
       style,
-      onClick,
+      onClick: this.onClick,
       disabled,
       href,
       target,
@@ -113,6 +127,8 @@ RCButton.propTypes = {
   noink: React.PropTypes.bool,
   raised: React.PropTypes.bool,
   badgeLabel: React.PropTypes.string,
+  dialogConfirm: React.PropTypes.bool,
+  dialogDismiss: React.PropTypes.bool,
 };
 
 export { RCButton };
